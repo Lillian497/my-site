@@ -9,26 +9,41 @@
 <body>
   <header class="container">
     <h1>我的小部落格</h1>
-    <p class="muted">紀錄生活與學習</p>
+    <p class="muted">紀錄生活與學習（JSON 自動生成列表）</p>
   </header>
 
-  <main class="container grid">
-    <!-- 一篇文章卡片（整張可點） -->
-    <a class="card" href="posts/post-1.html">
-      <h2>如何用 HTML 做可點進去的文章</h2>
-      <p class="meta">2025-08-28 · 3 分鐘閱讀</p>
-      <p class="excerpt">想要做出列表頁可以點進去看全文的效果？其實只要用 a 標籤包住卡片就行了…</p>
-    </a>
-
-    <a class="card" href="posts/post-2.html">
-      <h2>我的第二篇文章</h2>
-      <p class="meta">2025-08-20 · 2 分鐘閱讀</p>
-      <p class="excerpt">這是第二篇文章的摘要內容，點進去看完整內容與圖片。</p>
-    </a>
+  <main class="container grid" id="posts-list">
+    <!-- 文章卡片由 JS 生成 -->
+    <noscript>需要啟用 JavaScript 才能顯示文章列表。</noscript>
   </main>
 
-  <footer class="container muted">
-    © 2025 by Me
-  </footer>
+  <footer class="container muted">© 2025 by Me</footer>
+
+  <script>
+    // 讀取 posts.json 並動態生成文章列表
+    fetch('posts.json')
+      .then(res => {
+        if (!res.ok) throw new Error('無法讀取 posts.json');
+        return res.json();
+      })
+      .then(posts => {
+        const list = document.getElementById('posts-list');
+        posts.forEach(p => {
+          const a = document.createElement('a');
+          a.className = 'card';
+          a.href = p.file;
+          a.innerHTML = `
+            <h2>${p.title}</h2>
+            <p class="meta">${p.date}${p.readingTime ? ' · ' + p.readingTime : ''}</p>
+            <p class="excerpt">${p.excerpt || ''}</p>
+          `;
+          list.appendChild(a);
+        });
+      })
+      .catch(err => {
+        const list = document.getElementById('posts-list');
+        list.innerHTML = '<p class="muted">讀取文章列表失敗：' + err.message + '</p>';
+      });
+  </script>
 </body>
 </html>
