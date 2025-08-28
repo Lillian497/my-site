@@ -1,0 +1,30 @@
+[
+  {
+    "title": "台北",
+    "date": "2025-08-29",
+    "readingTime": "3 分鐘閱讀",
+    "excerpt": "台北是一個充滿活力的城市，融合現代與傳統…",
+    "file": "posts/taipei.html"
+  },
+  {
+    "title": "台中",
+    "date": "2025-08-28",
+    "readingTime": "2 分鐘閱讀",
+    "excerpt": "台中以美食和文化景點聞名，是台灣中部的中心…",
+    "file": "posts/taichung.html"
+  },
+  {
+    "title": "高雄",
+    "date": "2025-08-27",
+    "readingTime": "2 分鐘閱讀",
+    "excerpt": "高雄是港口城市，擁有海洋氛圍與藝文空間…",
+    "file": "posts/kaohsiung.html"
+  },
+  {
+    "title": "台南",
+    "date": "2025-08-26",
+    "readingTime": "2 分鐘閱讀",
+    "excerpt": "台南是美食與古蹟之都，巷弄裡藏著驚喜…",
+    "file": "posts/tainan.html"
+  }
+]
