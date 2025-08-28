@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>如何用 HTML 做可點進去的文章</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <nav class="container">
+    <a href="../index.html">← 回首頁</a>
+  </nav>
+
+  <article class="container article">
+    <h1>如何用 HTML 做可點進去的文章</h1>
+    <p class="meta">2025-08-28 · 作者：Me</p>
+
+    <p>其實重點只有一個：用 <code>&lt;a href="..."&gt;</code> 超連結把卡片或標題包起來，指到這個頁面就好。</p>
+    <h2>步驟</h2>
+    <ol>
+      <li>建立列表頁 <code>index.html</code>。</li>
+      <li>每篇文章各做一個 <code>posts/xxx.html</code>。</li>
+      <li>在列表頁用 <code>&lt;a href="posts/xxx.html"&gt;</code> 連過來。</li>
+    </ol>
+  </article>
+</body>
+</html>
